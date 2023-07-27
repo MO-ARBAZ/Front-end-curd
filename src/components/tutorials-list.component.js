@@ -158,13 +158,13 @@ export default class TutorialsList extends Component {
                 {currentTutorial.published ? "Published" : "Pending"}
               </div>
               {console.log(currentTutorial.id ,"currentTutorial.id")}
-          <button> <Link
+       <Link
                 to={"/tutorials/"
                  + currentTutorial.id}
-                className="badge badge-warning"
+                className="m-3 btn btn-sm btn-danger"
               >
                 Edit
-              </Link> </button>  
+              </Link>   
             </div>
           ) : (
             <div>

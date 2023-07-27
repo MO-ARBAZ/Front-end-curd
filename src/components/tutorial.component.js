@@ -154,14 +154,14 @@ class Tutorial extends Component {
 
             {currentTutorial.published ? (
               <button
-                className="badge badge-primary mr-2"
+                className="btn btn-outline-secondary"
                 onClick={() => this.updatePublished(false)}
               >
                 UnPublish
               </button>
             ) : (
               <button
-                className="badge badge-primary mr-2"
+                className="btn btn-outline-secondary"
                 onClick={() => this.updatePublished(true)}
               >
                 Publish
@@ -169,7 +169,7 @@ class Tutorial extends Component {
             )}
 
             <button
-              className="badge badge-danger mr-2"
+              className="btn btn-outline-secondary"
               onClick={this.deleteTutorial}
             >
               Delete
@@ -177,7 +177,7 @@ class Tutorial extends Component {
 
             <button
               type="submit"
-              className="badge badge-success"
+              className="btn btn-outline-secondary"
               onClick={this.updateTutorial}
             >
               Update
