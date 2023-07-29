@@ -74,10 +74,14 @@ export default class TutorialsList extends Component {
   searchTitle() {
     TutorialDataService.findByTitle(this.state.searchTitle)
       .then(response => {
+        console.log(response.data);
+        console.log("hello ar");
         this.setState({
+         
           tutorials: response.data
         });
-        console.log(response.data);
+        
+        
       })
       .catch(e => {
         console.log(e);
@@ -158,13 +162,13 @@ export default class TutorialsList extends Component {
                 {currentTutorial.published ? "Published" : "Pending"}
               </div>
               {console.log(currentTutorial.id ,"currentTutorial.id")}
-       <Link
+          <button> <Link
                 to={"/tutorials/"
                  + currentTutorial.id}
                 className="m-3 btn btn-sm btn-danger"
               >
                 Edit
-              </Link>   
+              </Link> </button>  
             </div>
           ) : (
             <div>

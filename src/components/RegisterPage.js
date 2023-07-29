@@ -1,41 +1,60 @@
-// src/components/RegisterPage.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
-const RegisterPage = () => {
+const RegisterForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleRegister = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     try {
-      const response = await axios.post('/api/register', { username, password });
-      // Handle successful registration, login user, etc.
-      console.log('Registration successful:', response.data);
+      const response = await axios.post('http://localhost:8808/register', {
+        username,
+        password,
+      });
+
+      console.log(response.data); // Assuming the server returns a message on success
     } catch (error) {
-      // Handle registration error
-      console.log('Registration error:', error.response.data.message);
+      console.error(error.response.data);
     }
   };
 
   return (
     <div>
-      <h1>Register</h1>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        placeholder="Username"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <button onClick={handleRegister}>Register</button>
+      <h2>Register</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="username">Username:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Register</button>
+
+        <button> <Link
+                to={"/"
+                 }
+                className="m-3 btn btn-sm btn-danger"
+              >
+                Already a user !Login
+              </Link> </button>  
+      </form>
     </div>
   );
 };
 
-export default RegisterPage;
+export default RegisterForm;
