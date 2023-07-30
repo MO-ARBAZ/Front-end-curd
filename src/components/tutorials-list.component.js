@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TutorialDataService from "../services/tutorial.service";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from '../AuthContext';
 export default class TutorialsList extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +11,7 @@ export default class TutorialsList extends Component {
     this.setActiveTutorial = this.setActiveTutorial.bind(this);
     this.removeAllTutorials = this.removeAllTutorials.bind(this);
     this.searchTitle = this.searchTitle.bind(this);
+    
 
     this.state = {
       tutorials: [],

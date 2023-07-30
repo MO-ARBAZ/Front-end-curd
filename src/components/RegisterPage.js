@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState ,useContext } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthContext';
 
 const RegisterForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const authContext = useContext(AuthContext);
+  authContext.setLoginSuccessful(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
